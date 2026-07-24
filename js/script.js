@@ -257,67 +257,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ========== MUSIC TOGGLE ========== */
-  const musicBtn = document.getElementById('musicToggle');
-  const audio = new Audio();
+  const musicBtn = document.getElementById("musicToggle");
+  const audio = new Audio("assets/Kewer-Kewer ( Libertaria feat. Riris Arista ).mp3");
   audio.loop = true;
   audio.volume = 0.3;
   let isMusicPlaying = false;
 
-  /* Use a simple ambient melody via Web Audio API as fallback */
-  let audioCtx, gainNode, isPlaying = false;
-  const notes = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88, 523.25];
-  let currentNote = 0;
-  let intervalId = null;
-
-  function initAudio() {
-    if (audioCtx) return;
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    gainNode = audioCtx.createGain();
-    gainNode.gain.value = 0.08;
-    gainNode.connect(audioCtx.destination);
-  }
-
-  function playMusic() {
-    initAudio();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-    if (isPlaying) return;
-    isPlaying = true;
-    musicBtn.classList.remove('paused');
-
-    function playNote() {
-      if (!isPlaying) return;
-      const osc = audioCtx.createOscillator();
-      osc.type = 'sine';
-      osc.frequency.value = notes[Math.floor(Math.random() * notes.length)];
-      const noteGain = audioCtx.createGain();
-      noteGain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-      noteGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
-      osc.connect(noteGain);
-      noteGain.connect(gainNode);
-      osc.start();
-      osc.stop(audioCtx.currentTime + 1.2);
-    }
-
-    playNote();
-    intervalId = setInterval(playNote, 1500);
-  }
-
-  function stopMusic() {
-    isPlaying = false;
-    musicBtn.classList.add('paused');
-    if (intervalId) {
-      clearInterval(intervalId);
-      intervalId = null;
-    }
-  }
-
-  musicBtn.addEventListener('click', () => {
-    if (isPlaying) {
-      stopMusic();
+  function toggleMusic() {
+    if (isMusicPlaying) {
+      audio.pause();
+      musicBtn.classList.add("paused");
     } else {
-      playMusic();
+      audio.currentTime = 55; audio.play().catch(() => {});
+      musicBtn.classList.remove("paused");
     }
-  });
+    isMusicPlaying = !isMusicPlaying;
+  }
+
+  musicBtn.addEventListener("click", toggleMusic);
 
   /* ========== PARALLAX ON SCROLL ========== */
   window.addEventListener('scroll', () => {
@@ -345,3 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+
+
+

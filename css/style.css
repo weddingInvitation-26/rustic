@@ -1469,3 +1469,15 @@ section[id] {
   }
 }
 
+
+/* COUPLE IMAGE FIT */
+.couple-img {
+  overflow: hidden;
+}
+
+.couple-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}

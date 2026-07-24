@@ -168,12 +168,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
 
   const gradients = [
-    'linear-gradient(135deg, #ff6b6b, #ee5a24)',
-    'linear-gradient(135deg, #feca57, #ff9f43)',
-    'linear-gradient(135deg, #a29bfe, #6c5ce7)',
-    'linear-gradient(135deg, #55efc4, #00b894)',
-    'linear-gradient(135deg, #fd79a8, #e84393)',
-    'linear-gradient(135deg, #ffeaa7, #fdcb6e)'
+    'linear-gradient(135deg, #667eea, #764ba2)',
+    'linear-gradient(135deg, #f093fb, #f5576c)',
+    'linear-gradient(135deg, #4facfe, #00f2fe)',
+    'linear-gradient(135deg, #43e97b, #38f9d7)',
+    'linear-gradient(135deg, #fa709a, #fee140)',
+    'linear-gradient(135deg, #a18cd1, #fbc2eb)'
   ];
 
   function openModal(index) {

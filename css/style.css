@@ -1481,3 +1481,9 @@ section[id] {
   object-fit: cover;
   border-radius: 50%;
 }
+
+/* FIX HORIZONTAL SCROLL ON MOBILE */
+#particles-js canvas {
+  max-width: 100% !important;
+  width: 100% !important;
+}

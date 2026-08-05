@@ -286,13 +286,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* ========== SMOOTH SCROLL FOR HERO BUTTON ========== */
-  document.querySelector('.hero-btn').addEventListener('click', (e) => {
-    e.preventDefault();
-    const target = document.querySelector('#rsvp');
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-
   /* ========== DRESS CODE TOOLTIP ========== */
   document.querySelectorAll('.dress-color').forEach(el => {
     el.addEventListener('click', () => {
@@ -301,8 +294,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ========== ENVELOPE ANIMATION ========== */
+  const envelopeOverlay = document.getElementById('envelopeOverlay');
+  const envelopeFront = document.getElementById('envelopeFront');
+  const envelopeClose = document.getElementById('envelopeClose');
+  const invitationCard = document.getElementById('invitationCard');
+  const heroBtn = document.querySelector('.hero-btn');
+  let isEnvelopeOpen = false;
+  let autoCloseTimer = null;
+
+  if (heroBtn) {
+    heroBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      envelopeOverlay.classList.add('active');
+      isEnvelopeOpen = true;
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        if (envelopeFront) envelopeFront.classList.add('open');
+        autoCloseTimer = setTimeout(proceedToInvitation, 3000);
+      }, 500);
+    });
+  }
+
+  function proceedToInvitation() {
+    closeEnvelope();
+    setTimeout(() => {
+      const target = document.querySelector('#rsvp');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 600);
+  }
+
+  function closeEnvelope() {
+    if (autoCloseTimer) clearTimeout(autoCloseTimer);
+    if (envelopeFront) envelopeFront.classList.remove('open');
+    setTimeout(() => {
+      envelopeOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      isEnvelopeOpen = false;
+    }, 400);
+  }
+
+  if (envelopeClose) {
+    envelopeClose.addEventListener('click', closeEnvelope);
+  }
+
+  if (invitationCard) {
+    invitationCard.addEventListener('click', proceedToInvitation);
+    invitationCard.style.cursor = 'pointer';
+  }
+
+  if (envelopeOverlay) {
+    envelopeOverlay.addEventListener('click', (e) => {
+      if (e.target === envelopeOverlay) closeEnvelope();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isEnvelopeOpen) closeEnvelope();
+  });
+
 });
-
-
-
-

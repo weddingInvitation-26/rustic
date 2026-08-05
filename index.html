@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wedding Invitation</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Caveat:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -39,6 +39,7 @@
     <div id="particles-js"></div>
     <div class="petals-container" id="petals"></div>
     <div class="hero-overlay"></div>
+    <div class="hero-stamp">Love<br>Story</div>
     <div class="hero-content">
       <p class="hero-greeting">The Wedding of</p>
       <h1 class="hero-title">Ci Imut <span class="hero-amp">&</span> Mas Rusdi</h1>
@@ -223,33 +224,33 @@
       </div>
       <div class="gallery-grid reveal">
         <div class="gallery-item" data-index="0">
-          <div class="gallery-img" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-            <i class="fas fa-camera"></i>
+          <div class="gallery-img">
+            <img src="assets/rusdidanciimut.jfif" alt="Gallery 1">
           </div>
         </div>
         <div class="gallery-item" data-index="1">
-          <div class="gallery-img" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
-            <i class="fas fa-camera"></i>
+          <div class="gallery-img">
+            <img src="assets/ci imut.jfif" alt="Gallery 2">
           </div>
         </div>
         <div class="gallery-item" data-index="2">
-          <div class="gallery-img" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
-            <i class="fas fa-camera"></i>
+          <div class="gallery-img">
+            <img src="assets/rusdidanciimut2.jfif" alt="Gallery 3">
           </div>
         </div>
         <div class="gallery-item" data-index="3">
-          <div class="gallery-img" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
-            <i class="fas fa-camera"></i>
+          <div class="gallery-img">
+            <img src="assets/mas rusdi.jfif" alt="Gallery 4">
           </div>
         </div>
         <div class="gallery-item" data-index="4">
-          <div class="gallery-img" style="background: linear-gradient(135deg, #fa709a, #fee140);">
-            <i class="fas fa-camera"></i>
+          <div class="gallery-img">
+            <img src="assets/rusdidanciimut3.jfif" alt="Gallery 5">
           </div>
         </div>
         <div class="gallery-item" data-index="5">
-          <div class="gallery-img" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);">
-            <i class="fas fa-camera"></i>
+          <div class="gallery-img">
+            <img src="assets/rusdidanciimut4.jfif" alt="Gallery 6">
           </div>
         </div>
       </div>
@@ -381,6 +382,30 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
   <script src="js/script.js"></script>
+  <div class="envelope-overlay" id="envelopeOverlay">
+  <div class="envelope-container">
+    <div class="envelope-card">
+      <div class="envelope-front" id="envelopeFront">
+        <div class="envelope-seal" id="envelopeSeal"><i class="fas fa-heart"></i></div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-body">
+          <div class="envelope-label">??</div>
+          <div class="envelope-label-text">Undangan Pernikahan</div>
+        </div>
+      </div>
+      <div class="invitation-card" id="invitationCard">
+        <div class="card-badge">??</div>
+        <h3 class="card-sub">The Wedding of</h3>
+        <h1 class="card-names">Mas Rusdi &amp; Ci Imut</h1>
+        <div class="card-divider">?</div>
+        <p class="card-date">01 . 01 . 2027</p>
+        <p class="card-text">Dengan segala hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir memberikan doa restu.</p>
+        
+      </div>
+    </div>
+    <button class="envelope-close-btn" id="envelopeClose"><i class="fas fa-times"></i></button>
+  </div>
+</div>
 </body>
 </html>
 

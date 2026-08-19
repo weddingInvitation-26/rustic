@@ -228,9 +228,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowRight') nextImage();
   });
 
-  /* ========== RSVP FORM ========== */
+  /* ========== RSVP FORM (WhatsApp) ========== */
   const rsvpForm = document.getElementById('rsvpForm');
   const rsvpSuccess = document.getElementById('rsvpSuccess');
+
+  const WHATSAPP_NUMBER = '6285727674000'; // nomor pasangan, format 62 tanpa "+"
 
   rsvpForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -244,20 +246,16 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const attendanceText = formData.attendance === 'hadir' ? 'Hadir' : 'Tidak Hadir';
+    const text =
+      `Assalamu'alaikum / Halo!\n` +
+      `RSVP Undangan Pernikahan\n` +
+      `Nama: ${formData.name}\n` +
+      `Kehadiran: ${attendanceText}\n` +
+      `Jumlah Tamu: ${formData.guests}\n` +
+      `No HP: ${formData.phone}\n` +
+      `Doa/Ucapan: ${formData.message || '-'}`;
 
-    const wishCard = document.createElement('div');
-    wishCard.className = 'wish-card';
-    wishCard.style.animation = 'fadeUp 0.6s ease forwards';
-    wishCard.innerHTML = `
-      <div class="wish-avatar"><i class="fas fa-user"></i></div>
-      <div class="wish-body">
-        <h4>${formData.name}</h4>
-        <p>${formData.message || 'Terima kasih atas undangannya, semoga menjadi keluarga yang bahagia!'}</p>
-        <span class="wish-date">- ${attendanceText} (${formData.guests} Orang)</span>
-      </div>
-    `;
-
-    document.getElementById('wishesGrid').prepend(wishCard);
+    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text), '_blank');
 
     rsvpForm.style.display = 'none';
     rsvpSuccess.classList.add('active');

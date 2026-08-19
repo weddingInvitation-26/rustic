@@ -26,6 +26,9 @@
   --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
   --paper-bg: #f5e6d3;
   --twine: #8B7355;
+  --accent: #B8860B;
+  --accent-dark: #8B6914;
+  --bg: #FFF8F0;
 }
 
 html {
@@ -1384,19 +1387,21 @@ img {
 }
 
 .wish-body h4 {
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--dark);
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .wish-body p {
-  font-size: 13px;
-  color: var(--dark-soft);
+  font-size: 14px;
+  color: var(--dark);
   line-height: 1.7;
 }
 
 .wish-date {
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 600;
   color: var(--gold-dark);
   display: block;
   margin-top: 8px;
@@ -1699,6 +1704,7 @@ img {
 .card-badge {
   font-size: 40px;
   margin-bottom: 10px;
+  color: var(--gold-dark);
 }
 
 .card-sub {

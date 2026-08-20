@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
 
   /* ========== LOADER ========== */
   setTimeout(() => {
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const rsvpForm = document.getElementById('rsvpForm');
   const rsvpSuccess = document.getElementById('rsvpSuccess');
 
-  const WHATSAPP_NUMBER = '6285727674000'; // nomor pasangan, format 62 tanpa "+"
+  const WHATSAPP_NUMBER = '6281200000000'; // nomor pasangan, format 62 tanpa "+"
 
   rsvpForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -365,3 +365,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+/* ========== NAV CLOSE (mobile) ========== */
+const navClose = document.getElementById('navClose');
+if (navClose) {
+  navClose.addEventListener('click', () => {
+    document.getElementById('navToggle').classList.remove('active');
+    document.getElementById('navMenu').classList.remove('active');
+  });
+}
+
+/* ========== COPY REKENING ========== */
+const copyRek = document.getElementById('copyRek');
+if (copyRek) {
+  copyRek.addEventListener('click', () => {
+    const rek = (document.querySelector('.rek') && document.querySelector('.rek').textContent.trim()) || '1234567890';
+    navigator.clipboard.writeText(rek).then(() => {
+      copyRek.textContent = 'Tersalin!';
+      setTimeout(() => { copyRek.textContent = 'Salin No. Rekening'; }, 2000);
+    }).catch(() => {});
+  });
+}
